@@ -1,0 +1,13 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires
+*.tmp
+*.temp
+~*
+
+# Dossiers de sauvegarde
+backup/
+old/

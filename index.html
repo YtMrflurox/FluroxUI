@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLURO — UI Designer Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&family=Barlow+Condensed:wght@600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="logo/static.png">
+    <link rel="stylesheet" href="portfolio/style.css">
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="logo/standard.gif" alt="FLURO"
+                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 10px var(--accent);">
+            <div>FLU<span>RO</span></div>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="closeMenu()" data-fr="Accueil" data-en="Home">Accueil</a>
+            <a href="#gallery" onclick="closeMenu()" data-fr="Portfolio" data-en="Portfolio">Portfolio</a>
+            <a href="#about" onclick="closeMenu()" data-fr="À propos" data-en="About">À propos</a>
+            <a href="#contact" onclick="closeMenu()" data-fr="Contact" data-en="Contact">Contact</a>
+            <div class="language-switcher">
+                <button onclick="switchLanguage('fr')" class="lang-btn active" id="lang-fr">FR</button>
+                <button onclick="switchLanguage('en')" class="lang-btn" id="lang-en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero reveal">
+        <img src="logo/standard.gif" alt="FLURO" class="hero-logo">
+        <span class="hero-eyebrow" data-fr="UI DESIGNER ROBLOX & FIGMA" data-en="ROBLOX UI DESIGNER & FIGMA">UI DESIGNER ROBLOX & FIGMA</span>
+        <h1 data-fr="Interfaces<br><span style='text-shadow: 0 0 10px var(--accent); color: #6db8ff;' class='accent-color'>Roblox</span>" data-en="Roblox<br><span style='text-shadow: 0 0 10px var(--accent); color: #6db8ff;' class='accent-color'>Interfaces</span>">Interfaces<br><span style="text-shadow: 0 0 10px var(--accent); color: #6db8ff;" class="accent-color">Roblox</span></h1>
+
+        <div class="stats">
+            <div class="stat-item reveal delay-1">
+                <span class="stat-number" data-target="2024">0</span>
+                <span class="stat-label" data-fr="DÉBUT UI ROBLOX" data-en="STARTED ROBLOX UI">DÉBUT UI ROBLOX</span>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <span class="stat-number" data-target="2">0</span>
+                <span class="stat-label" data-fr="+ CRÉATIONS PRÉSENTÉES" data-en="+ SHOWCASED CREATIONS">+ CRÉATIONS PRÉSENTÉES</span>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <span class="stat-number" data-target="100">0</span>
+                <span class="stat-label" data-fr="% FAIT AVEC FIGMA" data-en="% MADE WITH FIGMA">% FAIT AVEC FIGMA</span>
+            </div>
+        </div>
+        <div class="scroll-action">
+            <p data-fr="SCROLL" data-en="SCROLL">SCROLL</p>
+            <a href="#gallery" class="scroll-link">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="separator reveal"></div>
+
+    <section id="gallery">
+        <div class="section-header reveal">
+            <span class="sec-label" data-fr="sélection" data-en="selection">sélection</span>
+            <h2 data-fr="MES <em class='accent-color'>CRÉATIONS UI</em>" data-en="MY <em class='accent-color'>UI DESIGNS</em>">MES <em class="accent-color">CRÉATIONS UI</em></h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card reveal delay-1">
+                <img src="creations/{209257A0-C91A-451D-A432-305CB36886F7}.png">
+                <div class="view-badge">fluro</div>
+                <div class="gallery-overlay"><span class="overlay-text" data-fr="UI Roblox - Shop Interface" data-en="Roblox UI - Shop Interface">UI Roblox - Shop Interface</span></div>
+            </div>
+            <div class="gallery-card reveal delay-2">
+                <img src="creations/{B8CC7BE2-45F9-472B-8754-B7014DB9E2CD}.png">
+                <div class="view-badge">fluro</div>
+                <div class="gallery-overlay"><span class="overlay-text" data-fr="UI Roblox - Settings Menu" data-en="Roblox UI - Settings Menu">UI Roblox - Settings Menu</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="separator reveal"></div>
+
+    <section id="about" class="reveal">
+        <div class="about-container">
+            <div style="text-align: center;" class="reveal delay-2">
+                <div>
+                    <img src="logo/static.png" alt="FLURO" class="about-logo">
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="sec-label" data-fr="Qui suis-je ?" data-en="Who am I?">Qui suis-je ?</span>
+                <h3 data-fr="À PROPOS<br>de <em>fluro</em>" data-en="ABOUT<br><em>fluro</em>">À PROPOS<br>de <em>fluro</em></h3>
+                <p style="word-spacing: 2px; letter-spacing: 0.1px;" data-fr="
+                    Je suis <span style='color:white; font-weight: bold;'>FLURO</span> — un UI designer débutant spécialisé dans les interfaces Roblox.<br>Je débute dans le domaine avec Figma et je présente ici mes premières créations d'interfaces gaming.<br><br>
+
+                    <span style='color: #ff6b35; font-weight: bold;'>⚠️ Important :</span> Je suis encore en apprentissage ! Je maîtrise les bases du design d'interfaces avec Figma mais je ne sais pas encore les coder. Je livre des fichiers Figma que votre développeur pourra implémenter.<br><br>
+
+                    <span style='color: var(--accent); font-weight: bold;'>💼 Ouvert aux petits projets !</span> Parfait pour débuter ensemble sur des interfaces Roblox simples. Contactez-moi sur <span style='color:var(--discordcolor); font-weight: 700;'><a href='https://discord.com/users/fluroxouy' style='text-decoration: none; color: var(--discordcolor);' target='_blank'>Discord</a></span> pour discuter !
+                " data-en="
+                    I'm <span style='color:white; font-weight: bold;'>FLURO</span> — a beginner UI designer specialized in Roblox interfaces.<br>I'm starting in this field with Figma and I'm showcasing here my first gaming interface creations.<br><br>
+
+                    <span style='color: #ff6b35; font-weight: bold;'>⚠️ Important:</span> I'm still learning! I master the basics of interface design with Figma but I don't know how to code them yet. I deliver Figma files that your developer can implement.<br><br>
+
+                    <span style='color: var(--accent); font-weight: bold;'>💼 Open for small projects!</span> Perfect to start together on simple Roblox interfaces. Contact me on <span style='color:var(--discordcolor); font-weight: 700;'><a href='https://discord.com/users/fluroxouy' style='text-decoration: none; color: var(--discordcolor);' target='_blank'>Discord</a></span> to discuss!
+                ">
+                    Je suis <span style="color:white; font-weight: bold;">FLURO</span> — un UI designer débutant spécialisé dans les interfaces Roblox.<br>Je débute dans le domaine avec Figma et je présente ici mes premières créations d'interfaces gaming.<br><br>
+
+                    <span style="color: #ff6b35; font-weight: bold;">⚠️ Important :</span> Je suis encore en apprentissage ! Je maîtrise les bases du design d'interfaces avec Figma mais je ne sais pas encore les coder. Je livre des fichiers Figma que votre développeur pourra implémenter.<br><br>
+
+                    <span style="color: var(--accent); font-weight: bold;">💼 Ouvert aux petits projets !</span> Parfait pour débuter ensemble sur des interfaces Roblox simples. Contactez-moi sur <span style="color:var(--discordcolor); font-weight: 700;"><a
+                            href="https://discord.com/users/fluroxouy"
+                            style="text-decoration: none; color: var(--discordcolor);"
+                            target="_blank">Discord</a></span> pour discuter !
+                </p>
+                <div class="about-tags">
+                    <span class="tag" data-fr="Débutant" data-en="Beginner">Débutant</span>
+                    <span class="tag" data-fr="Roblox UI" data-en="Roblox UI">Roblox UI</span>
+                    <span class="tag" data-fr="Figma" data-en="Figma">Figma</span>
+                    <span class="tag" data-fr="Gaming" data-en="Gaming">Gaming</span>
+                    <span class="tag" data-fr="Apprentissage" data-en="Learning">Apprentissage</span>
+                    <span class="tag" data-fr="Petit Projet" data-en="Small Project">Petit Projet</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="separator reveal"></div>
+
+    <section id="contact" class="contact reveal">
+        <div class="section-header">
+            <span class="hero-eyebrow" data-fr="OUVERT AUX PETITS PROJETS" data-en="OPEN FOR SMALL PROJECTS">OUVERT AUX PETITS PROJETS</span>
+            <h2 data-fr="Commençons <em class='accent-color' style='font-style: normal;'>ensemble</em>" data-en="Let's start <em class='accent-color' style='font-style: normal;'>together</em>">Commençons <em class="accent-color" style="font-style: normal;">ensemble</em></h2>
+            <div class="contact-description">
+                <p data-fr="Contactez-moi pour des petits projets d'UI Roblox. Parfait pour apprendre ensemble !" data-en="Contact me for small Roblox UI projects. Perfect to learn together!">Contactez-moi pour des petits projets d'UI Roblox. Parfait pour apprendre ensemble !</p>
+            </div>
+        </div>
+        <a href="https://discord.com/users/fluroxouy" style="text-decoration: none;" target="_blank"
+            class="discord-box reveal delay-1">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="40">
+            <span class="discord-tag">fluroxouy</span>
+        </a>
+        <div class="delivery-info reveal delay-2">
+            <span data-fr="RÉPONSE RAPIDE • PROJETS SIMPLES • TARIFS DÉBUTANT" data-en="FAST RESPONSE • SIMPLE PROJECTS • BEGINNER RATES">RÉPONSE RAPIDE • PROJETS SIMPLES • TARIFS DÉBUTANT</span>
+            <span class="rush-badge" data-fr="DÉBUTANT MOTIVÉ" data-en="MOTIVATED BEGINNER">DÉBUTANT MOTIVÉ</span>
+        </div>
+        <div class="wrapper reveal">
+
+            <a href="https://www.figma.com/@fluro" target="_blank" class="icon figma">
+                <div class="tooltip">Figma</div>
+                <span><i class="fab fa-figma"></i></span>
+            </a>
+
+            <a href="https://www.instagram.com/fluroxouy/" target="_blank" class="icon instagram">
+                <div class="tooltip">Instagram</div>
+                <span><i class="fab fa-instagram"></i></span>
+            </a>
+
+            <a href="https://github.com/fluroxouy/" target="_blank" class="icon github">
+                <div class="tooltip">GitHub</div>
+                <span><i class="fab fa-github"></i></span>
+            </a>
+
+            <a href="https://discord.com/users/fluroxouy" target="_blank" class="icon discord">
+                <div class="tooltip">Discord</div>
+                <span><i class="fab fa-discord"></i></span>
+            </a>
+
+        </div>
+    </section>
+
+    <div class="separator reveal"></div>
+
+    <footer>
+        <p data-fr="FLURO — 2026 • DESIGNED FOR UI EXCELLENCE" data-en="FLURO — 2026 • DESIGNED FOR UI EXCELLENCE">FLURO — 2026 • DESIGNED FOR UI EXCELLENCE</p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Hamburger menu mobile
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            toggle.classList.toggle('active');
+        });
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            toggle.classList.remove('active');
+        }
+        // Fermer le menu si on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target) && !navLinks.contains(e.target)) closeMenu();
+        });
+
+        function initStatsCounter() {
+            const stats = document.querySelectorAll('.stat-number');
+
+            stats.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+
+                // Configuration de la durée : 1s pour les gros nombres (2024, 100), 2s pour les petits
+                const duration = target > 50 ? 1050 : 1200;
+
+                let startTime = null;
+
+                const animation = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+
+                    // Calcul de la progression (entre 0 et 1)
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+
+                    // Calcul du nombre actuel
+                    const currentNumber = Math.floor(progress * target);
+
+                    // Affichage avec le "+" pour la cible 2, et "%" pour 100
+                    if (target === 2) {
+                        counter.innerText = "+" + currentNumber;
+                    } else if (target === 100) {
+                        counter.innerText = currentNumber + "%";
+                    } else {
+                        counter.innerText = currentNumber;
+                    }
+
+                    // Continue l'animation tant qu'on n'est pas à 100%
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        // On s'assure que le chiffre final est exact
+                        if (target === 2) {
+                            counter.innerText = "+" + target;
+                        } else if (target === 100) {
+                            counter.innerText = target + "%";
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                };
+
+                requestAnimationFrame(animation);
+            });
+        }
+
+        // Pour lancer l'animation avec un léger délai après le chargement du Hero
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(initStatsCounter, 500);
+        });
+
+        // Système de traduction
+        let currentLanguage = 'fr';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Mettre à jour les classes actives des boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            // Mettre à jour tous les éléments avec data-fr et data-en
+            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Si l'élément contient des balises HTML, utiliser innerHTML, sinon textContent
+                    if (text.includes('<') || element.innerHTML.includes('<span') || element.innerHTML.includes('<em') || element.innerHTML.includes('<br>')) {
+                        element.innerHTML = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+
+            // Cas spécial pour les éléments h1 avec des spans intégrés
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const titleText = heroTitle.getAttribute(`data-${lang}`);
+                if (titleText) {
+                    heroTitle.innerHTML = titleText;
+                }
+            }
+
+            // Sauvegarder la préférence de langue
+            localStorage.setItem('portfolio-language', lang);
+        }
+
+        // Charger la langue sauvegardée au chargement de la page
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio-language') || 'fr';
+            // Petit délai pour s'assurer que tout est chargé
+            setTimeout(() => {
+                switchLanguage(savedLang);
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
