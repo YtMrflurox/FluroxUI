@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLURO — UI Designer Portfolio</title>
+    
+    <!-- Protections meta -->
+    <meta name="author" content="FLURO - fluroxouy">
+    <meta name="copyright" content="© 2024 FLURO. Tous droits réservés.">
+    <meta name="robots" content="noarchive, nocache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&family=Barlow+Condensed:wght@600;800&display=swap"
         rel="stylesheet">
@@ -180,10 +188,166 @@
     <div class="separator reveal"></div>
 
     <footer>
-        <p data-fr="FLURO — 2026 • DESIGNED FOR UI EXCELLENCE" data-en="FLURO — 2026 • DESIGNED FOR UI EXCELLENCE">FLURO — 2026 • DESIGNED FOR UI EXCELLENCE</p>
+        <p data-fr="© 2024 FLURO — Portfolio protégé • Discord: fluroxouy" data-en="© 2024 FLURO — Protected portfolio • Discord: fluroxouy">© 2024 FLURO — Portfolio protégé • Discord: fluroxouy</p>
+        <p style="font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" data-fr="⚠️ Reproduction interdite sans autorisation" data-en="⚠️ Reproduction prohibited without permission">⚠️ Reproduction interdite sans autorisation</p>
     </footer>
 
     <script>
+        // ═══════════════════════════════════════════
+        // 🛡️ PROTECTIONS ANTI-VOL - PORTFOLIO FLURO
+        // ═══════════════════════════════════════════
+        
+        // Protection contre le clic droit
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showWarning('🚫 Clic droit désactivé - Portfolio protégé de FLURO');
+            return false;
+        });
+
+        // Protection contre les raccourcis de développeur
+        document.addEventListener('keydown', function(e) {
+            // F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+A, Ctrl+P
+            if (e.key === 'F12' || 
+                (e.ctrlKey && (e.shiftKey && e.key === 'I')) ||
+                (e.ctrlKey && (e.shiftKey && e.key === 'C')) ||
+                (e.ctrlKey && e.key === 'u') ||
+                (e.ctrlKey && e.key === 's') ||
+                (e.ctrlKey && e.key === 'a') ||
+                (e.ctrlKey && e.key === 'p')) {
+                e.preventDefault();
+                showWarning('🔒 Outils de développement bloqués - © FLURO 2024');
+                return false;
+            }
+        });
+
+        // Protection contre la sélection de texte
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Protection contre le glisser-déposer d'images
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Fonction d'alerte personnalisée
+        function showWarning(message) {
+            // Créer une alerte stylée au lieu d'un alert()
+            const warning = document.createElement('div');
+            warning.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(45deg, #ff6b35, #ff4757);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 10px;
+                    font-weight: bold;
+                    z-index: 9999;
+                    box-shadow: 0 10px 30px rgba(255, 75, 87, 0.3);
+                    animation: slideIn 0.3s ease;
+                    font-family: 'Inter', sans-serif;
+                ">
+                    ${message}
+                </div>
+                <style>
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                </style>
+            `;
+            document.body.appendChild(warning);
+            
+            // Supprimer après 3 secondes
+            setTimeout(() => {
+                if (warning.parentNode) {
+                    warning.parentNode.removeChild(warning);
+                }
+            }, 3000);
+        }
+
+        // Protection contre l'ouverture des DevTools (détection de taille)
+        let devtools = {open: false};
+        const threshold = 160;
+        setInterval(function() {
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtools.open) {
+                    devtools.open = true;
+                    document.body.style.display = 'none';
+                    document.body.innerHTML = `
+                        <div style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+                            color: #ff6b35;
+                            font-family: 'Inter', sans-serif;
+                            text-align: center;
+                            flex-direction: column;
+                        ">
+                            <h1>🛡️ ACCÈS REFUSÉ</h1>
+                            <p>Portfolio protégé © FLURO 2024</p>
+                            <p>Outils de développement détectés</p>
+                            <button onclick="location.reload()" style="
+                                margin-top: 20px;
+                                padding: 10px 20px;
+                                background: #00d4ff;
+                                border: none;
+                                border-radius: 5px;
+                                color: white;
+                                cursor: pointer;
+                                font-weight: bold;
+                            ">Recharger la page</button>
+                        </div>
+                    `;
+                    setTimeout(() => location.reload(), 2000);
+                }
+            } else {
+                devtools.open = false;
+            }
+        }, 500);
+
+        // Protection contre la console
+        (function() {
+            let devtools = false;
+            const detector = () => {
+                const start = new Date().getTime();
+                debugger;
+                const end = new Date().getTime();
+                if (end - start > 100) {
+                    console.clear();
+                    console.log('%c🛡️ PORTFOLIO PROTÉGÉ - © FLURO 2024', 'color: #ff6b35; font-size: 20px; font-weight: bold;');
+                    console.log('%c⚠️ Ce portfolio est protégé par des mesures anti-vol', 'color: #00d4ff; font-size: 14px;');
+                    console.log('%cContact: fluroxouy sur Discord', 'color: #7289da; font-size: 12px;');
+                }
+            };
+            setInterval(detector, 1000);
+        })();
+
+        // Watermark invisible dans la console
+        console.log(`
+        ███████╗██╗     ██╗   ██╗██████╗  ██████╗ 
+        ██╔════╝██║     ██║   ██║██╔══██╗██╔═══██╗
+        █████╗  ██║     ██║   ██║██████╔╝██║   ██║
+        ██╔══╝  ██║     ██║   ██║██╔══██╗██║   ██║
+        ██║     ███████╗╚██████╔╝██║  ██║╚██████╔╝
+        ╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ 
+        
+        🎮 Portfolio UI Designer Roblox
+        📧 Discord: fluroxouy
+        🔒 Site protégé - © 2024
+        `);
+
+        // ═══════════════════════════════════════════
+        // 📊 CODE FONCTIONNEL DU PORTFOLIO
+        // ═══════════════════════════════════════════
+
         // Scroll reveal
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {

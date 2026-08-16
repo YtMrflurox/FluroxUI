@@ -21,6 +21,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Protection contre la sélection de texte */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Protection contre le glisser-déposer */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 
 html {
@@ -450,6 +461,26 @@ section {
     object-fit: cover;
     transition: 0.6s ease;
     filter: brightness(.9);
+    /* Protection supplémentaire */
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* Watermark visible sur les images */
+.gallery-card::after {
+    content: '© FLURO 2024';
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    z-index: 10;
+    font-family: 'Inter', sans-serif;
 }
 
 .gallery-card:hover img {
