@@ -192,163 +192,11 @@
         <p style="font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" data-fr="⚠️ Reproduction interdite sans autorisation" data-en="⚠️ Reproduction prohibited without permission">⚠️ Reproduction interdite sans autorisation</p>
     </footer>
 
+    <!-- Protection anti-vol -->
+    <script src="protection.js"></script>
+    
     <script>
-        // ═══════════════════════════════════════════
-        // 🛡️ PROTECTIONS ANTI-VOL - PORTFOLIO FLURO
-        // ═══════════════════════════════════════════
-        
-        // Protection contre le clic droit
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            showWarning('🚫 Clic droit désactivé - Portfolio protégé de FLURO');
-            return false;
-        });
-
-        // Protection contre les raccourcis de développeur
-        document.addEventListener('keydown', function(e) {
-            // F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, Ctrl+A, Ctrl+P
-            if (e.key === 'F12' || 
-                (e.ctrlKey && (e.shiftKey && e.key === 'I')) ||
-                (e.ctrlKey && (e.shiftKey && e.key === 'C')) ||
-                (e.ctrlKey && e.key === 'u') ||
-                (e.ctrlKey && e.key === 's') ||
-                (e.ctrlKey && e.key === 'a') ||
-                (e.ctrlKey && e.key === 'p')) {
-                e.preventDefault();
-                showWarning('🔒 Outils de développement bloqués - © FLURO 2024');
-                return false;
-            }
-        });
-
-        // Protection contre la sélection de texte
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Protection contre le glisser-déposer d'images
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Fonction d'alerte personnalisée
-        function showWarning(message) {
-            // Créer une alerte stylée au lieu d'un alert()
-            const warning = document.createElement('div');
-            warning.innerHTML = `
-                <div style="
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(45deg, #ff6b35, #ff4757);
-                    color: white;
-                    padding: 15px 20px;
-                    border-radius: 10px;
-                    font-weight: bold;
-                    z-index: 9999;
-                    box-shadow: 0 10px 30px rgba(255, 75, 87, 0.3);
-                    animation: slideIn 0.3s ease;
-                    font-family: 'Inter', sans-serif;
-                ">
-                    ${message}
-                </div>
-                <style>
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                </style>
-            `;
-            document.body.appendChild(warning);
-            
-            // Supprimer après 3 secondes
-            setTimeout(() => {
-                if (warning.parentNode) {
-                    warning.parentNode.removeChild(warning);
-                }
-            }, 3000);
-        }
-
-        // Protection contre l'ouverture des DevTools (détection de taille)
-        let devtools = {open: false};
-        const threshold = 160;
-        setInterval(function() {
-            if (window.outerHeight - window.innerHeight > threshold || 
-                window.outerWidth - window.innerWidth > threshold) {
-                if (!devtools.open) {
-                    devtools.open = true;
-                    document.body.style.display = 'none';
-                    document.body.innerHTML = `
-                        <div style="
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            height: 100vh;
-                            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-                            color: #ff6b35;
-                            font-family: 'Inter', sans-serif;
-                            text-align: center;
-                            flex-direction: column;
-                        ">
-                            <h1>🛡️ ACCÈS REFUSÉ</h1>
-                            <p>Portfolio protégé © FLURO 2024</p>
-                            <p>Outils de développement détectés</p>
-                            <button onclick="location.reload()" style="
-                                margin-top: 20px;
-                                padding: 10px 20px;
-                                background: #00d4ff;
-                                border: none;
-                                border-radius: 5px;
-                                color: white;
-                                cursor: pointer;
-                                font-weight: bold;
-                            ">Recharger la page</button>
-                        </div>
-                    `;
-                    setTimeout(() => location.reload(), 2000);
-                }
-            } else {
-                devtools.open = false;
-            }
-        }, 500);
-
-        // Protection contre la console
-        (function() {
-            let devtools = false;
-            const detector = () => {
-                const start = new Date().getTime();
-                debugger;
-                const end = new Date().getTime();
-                if (end - start > 100) {
-                    console.clear();
-                    console.log('%c🛡️ PORTFOLIO PROTÉGÉ - © FLURO 2024', 'color: #ff6b35; font-size: 20px; font-weight: bold;');
-                    console.log('%c⚠️ Ce portfolio est protégé par des mesures anti-vol', 'color: #00d4ff; font-size: 14px;');
-                    console.log('%cContact: fluroxouy sur Discord', 'color: #7289da; font-size: 12px;');
-                }
-            };
-            setInterval(detector, 1000);
-        })();
-
-        // Watermark invisible dans la console
-        console.log(`
-        ███████╗██╗     ██╗   ██╗██████╗  ██████╗ 
-        ██╔════╝██║     ██║   ██║██╔══██╗██╔═══██╗
-        █████╗  ██║     ██║   ██║██████╔╝██║   ██║
-        ██╔══╝  ██║     ██║   ██║██╔══██╗██║   ██║
-        ██║     ███████╗╚██████╔╝██║  ██║╚██████╔╝
-        ╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ 
-        
-        🎮 Portfolio UI Designer Roblox
-        📧 Discord: fluroxouy
-        🔒 Site protégé - © 2024
-        `);
-
-        // ═══════════════════════════════════════════
-        // 📊 CODE FONCTIONNEL DU PORTFOLIO
-        // ═══════════════════════════════════════════
-
-        // Scroll reveal
+        // Code fonctionnel du portfolio
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -360,40 +208,40 @@
         // Hamburger menu mobile
         const toggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
-        toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            toggle.classList.toggle('active');
-        });
-        function closeMenu() {
-            navLinks.classList.remove('open');
-            toggle.classList.remove('active');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                toggle.classList.toggle('active');
+            });
         }
-        // Fermer le menu si on clique en dehors
+        
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.getElementById('navToggle');
+            if (navLinks && toggle) {
+                navLinks.classList.remove('open');
+                toggle.classList.remove('active');
+            }
+        }
+
         document.addEventListener('click', (e) => {
-            if (!toggle.contains(e.target) && !navLinks.contains(e.target)) closeMenu();
+            if (toggle && navLinks && !toggle.contains(e.target) && !navLinks.contains(e.target)) {
+                closeMenu();
+            }
         });
 
         function initStatsCounter() {
             const stats = document.querySelectorAll('.stat-number');
-
             stats.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-
-                // Configuration de la durée : 1s pour les gros nombres (2024, 100), 2s pour les petits
                 const duration = target > 50 ? 1050 : 1200;
-
                 let startTime = null;
 
                 const animation = (currentTime) => {
                     if (!startTime) startTime = currentTime;
-
-                    // Calcul de la progression (entre 0 et 1)
                     const progress = Math.min((currentTime - startTime) / duration, 1);
-
-                    // Calcul du nombre actuel
                     const currentNumber = Math.floor(progress * target);
 
-                    // Affichage avec le "+" pour la cible 2, et "%" pour 100
                     if (target === 2) {
                         counter.innerText = "+" + currentNumber;
                     } else if (target === 100) {
@@ -402,11 +250,9 @@
                         counter.innerText = currentNumber;
                     }
 
-                    // Continue l'animation tant qu'on n'est pas à 100%
                     if (progress < 1) {
                         requestAnimationFrame(animation);
                     } else {
-                        // On s'assure que le chiffre final est exact
                         if (target === 2) {
                             counter.innerText = "+" + target;
                         } else if (target === 100) {
@@ -416,12 +262,10 @@
                         }
                     }
                 };
-
                 requestAnimationFrame(animation);
             });
         }
 
-        // Pour lancer l'animation avec un léger délai après le chargement du Hero
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(initStatsCounter, 500);
         });
@@ -431,16 +275,13 @@
 
         function switchLanguage(lang) {
             currentLanguage = lang;
-            
-            // Mettre à jour les classes actives des boutons
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`lang-${lang}`).classList.add('active');
+            const langBtn = document.getElementById(`lang-${lang}`);
+            if (langBtn) langBtn.classList.add('active');
             
-            // Mettre à jour tous les éléments avec data-fr et data-en
             document.querySelectorAll('[data-fr][data-en]').forEach(element => {
                 const text = element.getAttribute(`data-${lang}`);
                 if (text) {
-                    // Si l'élément contient des balises HTML, utiliser innerHTML, sinon textContent
                     if (text.includes('<') || element.innerHTML.includes('<span') || element.innerHTML.includes('<em') || element.innerHTML.includes('<br>')) {
                         element.innerHTML = text;
                     } else {
@@ -449,7 +290,6 @@
                 }
             });
 
-            // Cas spécial pour les éléments h1 avec des spans intégrés
             const heroTitle = document.querySelector('.hero h1');
             if (heroTitle) {
                 const titleText = heroTitle.getAttribute(`data-${lang}`);
@@ -458,17 +298,12 @@
                 }
             }
 
-            // Sauvegarder la préférence de langue
             localStorage.setItem('portfolio-language', lang);
         }
 
-        // Charger la langue sauvegardée au chargement de la page
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('portfolio-language') || 'fr';
-            // Petit délai pour s'assurer que tout est chargé
-            setTimeout(() => {
-                switchLanguage(savedLang);
-            }, 100);
+            setTimeout(() => switchLanguage(savedLang), 100);
         });
     </script>
 </body>

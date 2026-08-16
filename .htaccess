@@ -1,0 +1,32 @@
+# Protection FLURO Portfolio - Anti-bot
+RewriteEngine On
+
+# Bloquer les user agents de bots extracteurs
+RewriteCond %{HTTP_USER_AGENT} (wget|curl|httrack|webcopier|webzip|attache|extractor|copier|offline) [NC]
+RewriteRule .* - [F,L]
+
+# Bloquer l'accès direct aux fichiers de protection
+<Files "protection.js">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Protection contre le hotlinking des images
+RewriteCond %{HTTP_REFERER} !^https?://ytmrflurox\.github\.io [NC]
+RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
+RewriteCond %{REQUEST_URI} \.(png|jpg|jpeg|gif)$ [NC]
+RewriteRule .* - [F,L]
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "DENY"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+</IfModule>
+
+# Copyright dans les headers HTTP
+<IfModule mod_headers.c>
+    Header set X-Copyright "FLURO 2024 - Tous droits reserves"
+    Header set X-Author "FLURO - fluroxouy"
+</IfModule>

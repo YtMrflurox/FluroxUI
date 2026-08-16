@@ -37,6 +37,43 @@
 html {
     scroll-behavior: smooth;
 }
+body::before {
+    content: "© FLURO 2024 - Portfolio protégé";
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    font-size: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -9999;
+}
+
+/* Watermark invisible */
+body::after {
+    content: "FLURO-PORTFOLIO-PROTECTED-2024";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    opacity: 0;
+    color: transparent;
+    pointer-events: none;
+}
+
+/* Protection image supplémentaire */
+img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
 
 body {
     background-color: var(--bg);
