@@ -17,21 +17,82 @@
     --section-py: clamp(60px, 10vh, 140px);
 }
 
+/* ═══════════════════════════════════════════
+   🛡️ PROTECTIONS CSS ANTI-MODE AVION
+   ═══════════════════════════════════════════ */
+
+/* Bloquer complètement la sélection */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Protection contre la sélection de texte */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /* Protection contre le glisser-déposer */
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-touch-callout: none !important;
+}
+
+/* Protection contre print screen */
+@media print {
+    * {
+        display: none !important;
+    }
+    body::before {
+        content: "🚫 IMPRESSION INTERDITE - © FLURO 2024 🚫";
+        display: block !important;
+        font-size: 50px !important;
+        color: red !important;
+        text-align: center !important;
+        padding: 200px 0 !important;
+    }
+}
+
+/* Watermark invisible mais présent dans le DOM */
+body::before {
+    content: "FLURO-2024-PORTFOLIO-PROTECTED-ANTI-THEFT";
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+    font-size: 0;
+    color: transparent;
+    pointer-events: none;
+}
+
+/* Masquer le contenu si DevTools détectés via CSS */
+@media (max-width: 1200px) and (min-width: 800px) {
+    /* Si la largeur est réduite (potentiel DevTools ouvert) */
+    body.devtools-detected {
+        background: linear-gradient(45deg, #ff0000, #000000) !important;
+        color: white !important;
+    }
+    
+    body.devtools-detected * {
+        display: none !important;
+    }
+    
+    body.devtools-detected::before {
+        content: "🚨 DEVTOOLS DÉTECTÉS - ACCÈS REFUSÉ 🚨" !important;
+        display: block !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        font-size: 3em !important;
+        z-index: 999999 !important;
+        animation: blink 1s infinite !important;
+    }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 html {

@@ -192,8 +192,81 @@
         <p style="font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" data-fr="⚠️ Reproduction interdite sans autorisation" data-en="⚠️ Reproduction prohibited without permission">⚠️ Reproduction interdite sans autorisation</p>
     </footer>
 
-    <!-- Protection anti-vol -->
+    <!-- Protection anti-vol et piège -->
     <script src="protection.js"></script>
+    <script src="trap.js"></script>
+    
+    <!-- Protection supplémentaire inline -->
+    <script>
+        // DÉTECTION MODE AVION ULTIME
+        (function() {
+            // Test de connexion réseau
+            let isOnline = navigator.onLine;
+            
+            // Si mode avion détecté ET DevTools ouverts = DESTRUCTION TOTALE
+            function ultimateProtection() {
+                if (!isOnline) {
+                    console.log('%c💀 MODE AVION DÉTECTÉ - DESTRUCTION IMMINENTE 💀', 'color: red; font-size: 30px; background: yellow;');
+                    
+                    // Corruption progressive
+                    let corruptionTimer = 0;
+                    const corrupt = setInterval(() => {
+                        corruptionTimer++;
+                        
+                        // Effet de glitch
+                        document.body.style.filter = `hue-rotate(${corruptionTimer * 45}deg) contrast(${100 + corruptionTimer * 20}%)`;
+                        
+                        if (corruptionTimer > 5) {
+                            // DESTRUCTION FINALE
+                            document.documentElement.innerHTML = `
+                                <!DOCTYPE html>
+                                <html><head><title>ACCÈS REFUSÉ - FLURO</title></head>
+                                <body style="
+                                    background: linear-gradient(45deg, #ff0000, #000, #ff0000);
+                                    background-size: 400% 400%;
+                                    animation: gradientShift 1s ease infinite;
+                                    color: white;
+                                    font-family: 'Courier New';
+                                    height: 100vh;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    text-align: center;
+                                    font-size: 2em;
+                                ">
+                                    <div>
+                                        <h1 style="font-size: 2em; margin-bottom: 20px;">💀 SITE DÉTRUIT 💀</h1>
+                                        <p>MODE AVION INUTILE !</p>
+                                        <p>Portfolio protégé © FLURO 2024</p>
+                                        <p style="color: #ffff00; margin-top: 20px;">Ton pote a échoué 😂</p>
+                                    </div>
+                                    <style>
+                                        @keyframes gradientShift {
+                                            0% { background-position: 0% 50%; }
+                                            50% { background-position: 100% 50%; }
+                                            100% { background-position: 0% 50%; }
+                                        }
+                                    </style>
+                                </body></html>
+                            `;
+                            clearInterval(corrupt);
+                        }
+                    }, 1000);
+                }
+            }
+            
+            // Surveillance réseau
+            window.addEventListener('offline', ultimateProtection);
+            window.addEventListener('online', () => {
+                console.log('📶 Connexion rétablie - Protection active');
+            });
+            
+            // Test initial
+            if (!isOnline) {
+                setTimeout(ultimateProtection, 2000);
+            }
+        })();
+    </script>
     
     <script>
         // Code fonctionnel du portfolio
